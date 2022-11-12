@@ -36,18 +36,21 @@ const SingInPage = () => {
   return (
     <div>
       {user.email ? (
-        <button onClick={handleGoogleSingOut}>
-          Sing Out ({user.displayName})
-        </button>
+        <>
+          <button onClick={handleGoogleSingOut}>
+            Sing Out ({user.displayName})
+          </button>
+          <div className="card">
+            <img src={user.photoURL} alt="" />
+            <h2>{user.displayName}</h2>
+            <p>{user.email}</p>
+          </div>
+        </>
       ) : (
-        <button onClick={handleGoogleSingIn}>Google Sing In</button>
+        <>
+          <button onClick={handleGoogleSingIn}>Google Sing In</button>
+        </>
       )}
-
-      <div>
-        <img src={user.photoURL} alt="" />
-        <h2>{user.displayName}</h2>
-        <p>{user.email}</p>
-      </div>
     </div>
   );
 };
